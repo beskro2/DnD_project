@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import NotesPage from './pages/NotesPage';
+import MyCharacterPage from './pages/MyCharacterPage';
+import CharacterLibraryPage from './pages/CharacterLibraryPage';
+import BagOfHoldingPage from './pages/BagOfHoldingPage';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -16,8 +19,23 @@ const router = createBrowserRouter([
   }
   ,
   {
+    path: "/MyCharacter",
+    element:<MyCharacterPage/>
+  }
+  ,
+  {
     path: "/notes",
     element:<NotesPage/>
+  }
+  ,
+  {
+    path: "/CharacterLibrary",
+    element:<CharacterLibraryPage/>
+  }
+  ,
+  {
+    path: "/BagOfHolding",
+    element:<BagOfHoldingPage/>
   }
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

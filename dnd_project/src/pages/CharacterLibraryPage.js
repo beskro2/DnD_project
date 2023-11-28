@@ -1,15 +1,17 @@
 import './Notes.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CharacterCards from 'C:/Users/eskro/OneDrive/fall 2023 classes/Human computer interactions/DnD_project/dnd_project/src/components/CharacterCards';
+import Container from 'react-bootstrap/Container';
 
-function NotesPage() {
+function CharacterLibraryPage() {
   return (
-   
-       
-        <p>
-         Character Library page
-        </p>
-        
-   
+    <div>
+      <CharacterCards/>
+   <p>
+    test
+   </p>
+   </div>
   );
 }
 
-export default NotesPage;
+export default CharacterLibraryPage;

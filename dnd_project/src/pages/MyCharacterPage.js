@@ -1,15 +1,28 @@
 import './Notes.css';
-
-function NotesPage() {
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+function MyCharacterPage() {
   return (
    
-       
-        <p>
-         MyCharacter page
-        </p>
+       <div>
+          <Container>
+      <Row>
+        <Col>test1</Col>
+        <Col>test2</Col>
+      </Row>
+      <Row>
+        <Col>aaaa</Col>
+        <Col>bbbbb</Col>
+        <Col>ccccc</Col>
+      </Row>
+    </Container>
+          <title>My Character</title>
+      <p>test</p>
         
+        </div>  
    
   );
 }
 
-export default NotesPage;
+export default MyCharacterPage;

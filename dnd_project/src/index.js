@@ -6,7 +6,9 @@ import NotesPage from './pages/NotesPage';
 import MyCharacterPage from './pages/MyCharacterPage';
 import CharacterLibraryPage from './pages/CharacterLibraryPage';
 import BagOfHoldingPage from './pages/BagOfHoldingPage';
+import CreateNotePage from './pages/CreateNotePage';
 import reportWebVitals from './reportWebVitals';
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,28 +17,32 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<App/>
-  }
-  ,
+    element:<App/>,
+    children:[ {
+      path: "/MyCharacter",
+      element:<MyCharacterPage/>
+    }
+    ,
+    {
+      path: "/notes",
+      element:<NotesPage/>
+    }
+    ,
+    {
+      path: "/CharacterLibrary",
+      element:<CharacterLibraryPage/>
+    }
+    ,
+    {
+      path: "/BagOfHolding",
+      element:<BagOfHoldingPage/>
+    },
   {
-    path: "/MyCharacter",
-    element:<MyCharacterPage/>
+    path: "/CreateNote",
+    element:<CreateNotePage/>
+  }]
   }
-  ,
-  {
-    path: "/notes",
-    element:<NotesPage/>
-  }
-  ,
-  {
-    path: "/CharacterLibrary",
-    element:<CharacterLibraryPage/>
-  }
-  ,
-  {
-    path: "/BagOfHolding",
-    element:<BagOfHoldingPage/>
-  }
+  
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

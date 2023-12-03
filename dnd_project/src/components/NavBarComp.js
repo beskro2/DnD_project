@@ -11,8 +11,8 @@ export default class NavBarComp extends Component {
                    <Container>
                       <Navbar.Brand href="#">Navbar</Navbar.Brand>
                         <Nav className="me-auto">
-                            <Nav.Link href="/MyCharacter">My Character</Nav.Link>
-                            <Nav.Link href="/CharacterLibrary">Character Library</Nav.Link>
+                            <Nav.Link href="/MyCharacter">Characters</Nav.Link>
+                            <Nav.Link href="/CharacterLibrary">NPC Library</Nav.Link>
                             <Nav.Link href="/BagOfHolding">Bag of Holding</Nav.Link>
                             <Nav.Link href="/notes">Notes</Nav.Link>
                         </Nav>

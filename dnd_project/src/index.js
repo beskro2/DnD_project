@@ -6,7 +6,7 @@ import NotesPage from './pages/NotesPage';
 import MyCharacterPage from './pages/MyCharacterPage';
 import CharacterLibraryPage from './pages/CharacterLibraryPage';
 import BagOfHoldingPage from './pages/BagOfHoldingPage';
-import CreateNotePage from './pages/CreateNotePage';
+
 import reportWebVitals from './reportWebVitals';
 
 import {
@@ -37,10 +37,7 @@ const router = createBrowserRouter([
       path: "/BagOfHolding",
       element:<BagOfHoldingPage/>
     },
-  {
-    path: "/CreateNote",
-    element:<CreateNotePage/>
-  }]
+ ]
   }
   
 ]);

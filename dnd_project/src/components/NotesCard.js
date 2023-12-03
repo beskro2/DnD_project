@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-export default class NotesCard extends Component {
-    render() {
+export default function NotesCard(props) {
         return(
            <div>
               <Card>
       <Card.Header as="h5">Featured</Card.Header>
       <Card.Body>
-        <Card.Title>Special title treatment</Card.Title>
+        <Card.Title>{props.note.name} ({props.note.date})</Card.Title>
         <Card.Text>
-          With supporting text below as a natural lead-in to additional content.
+         {props.note.note}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+       
       </Card.Body>
     </Card>
            </div>
         )
     }
-}

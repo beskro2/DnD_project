@@ -17,7 +17,7 @@ function MyCharacterPage() {
         <Col>ccccc</Col>
       </Row>
     </Container>
-          <title>My Character</title>
+          <title>Character</title>
       <p>test</p>
         
         </div>  

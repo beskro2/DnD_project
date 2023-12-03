@@ -7,9 +7,7 @@ function CharacterLibraryPage() {
   return (
     <div>
       <CharacterCards/>
-   <p>
-    test
-   </p>
+  
    </div>
   );
 }

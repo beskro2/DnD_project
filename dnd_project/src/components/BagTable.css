@@ -1,0 +1,13 @@
+
+.scrollbutton {
+    display: flex;
+    gap: 5px;
+    align-items: self-start;
+}
+
+.buttonsize {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+}

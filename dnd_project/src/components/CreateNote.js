@@ -45,7 +45,7 @@ function CreateNotePage(props) {
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
       <Form.Label>Enter Date</Form.Label>
       <Form.Control type="date" placeholder="##/##/####" onChange={getDate}/>
-      {date} {author} {note}
+      
     </Form.Group>
         </Col>
         <Col>

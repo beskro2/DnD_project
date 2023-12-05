@@ -12,7 +12,7 @@ function App() {
 
      
       <Outlet/>
-      footer
+   
 
     </div>
     

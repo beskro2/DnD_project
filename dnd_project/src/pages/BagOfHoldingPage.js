@@ -1,16 +1,16 @@
 import './Notes.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BagTable from 'C:/Users/eskro/OneDrive/fall 2023 classes/Human computer interactions/DnD_project/dnd_project/src/components/BagTable';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import React, { Component } from 'react';
+
 import './BagOfHolding.css';
 import Form2 from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useState } from 'react';
 
@@ -18,7 +18,7 @@ import { useState } from 'react';
 
 function BagOfHoldingPage() {
 
-  const [inputarr,setInputarr]= useState([])
+  const [inputarr,setInputarr]= useState([{quantity:1,name:"excalibur", discription:"The legandary sword king arthur pulled from the stone"},{quantity:20,name:"Arrow", discription:"barbed arrows"},{quantity:1,name:"cow", discription:"a regular brown cow"}])
 
   const[inputdata, setInputData] = useState({quantity: 0, name: "", discription: ""})
   
@@ -34,18 +34,28 @@ function BagOfHoldingPage() {
  function decreaseQuantity(){
   setInputData(prevInputData => ({
     ...prevInputData,
-    quantity: prevInputData.quantity-1, 
+    quantity: Math.max(0,prevInputData.quantity-1), 
   }));
  }
+ 
 
   function changehandle(e){
   
   setInputData({...inputdata,[e.target.name]:e.target.value})
   
   }
+
+  const handleQuantityChange = (index, increment) => {
+    const updatedInputArr = [...inputarr];
+    updatedInputArr[index].quantity = Math.max(0,updatedInputArr[index].quantity + increment);
+    setInputarr(updatedInputArr);
+  }
   
-  
-  
+  const handledeleteentry = (index) => {
+    const updatedInputArr = [...inputarr];
+    updatedInputArr.splice(index,1);
+    setInputarr(updatedInputArr);
+  }
 
   function submit(){
   setInputarr([...inputarr,{
@@ -63,16 +73,9 @@ function BagOfHoldingPage() {
     <Container>
       <Row>
         <Col>
-
-
-        <Card style={{ width: '18rem' }}>
-      
+        <Card className='inputcard'>
       <Card.Body>
-
-          
-
         <Card.Title>Create Item</Card.Title>
-
         <InputGroup className="mb-3">
             <InputGroup.Text >Item Name</InputGroup.Text>
             <Form.Control aria-label="Item Name name" name='name' value={inputdata.name} onChange={changehandle}  />
@@ -102,21 +105,30 @@ function BagOfHoldingPage() {
    
     </Col>
        <Col>
-<table border={1}  width="30%" cellPadding={10}>
+
+<table  className="table" >
   <tbody>
   <tr>
     <td>Quantity</td>
-    <td>Item name</td>
+    <td>Item</td>
     <td>Description</td>
+    <td>delete</td>
   </tr>
   {
     inputarr.map(
-      (info,ind)=>{
+      (info,index)=>{
         return(
-          <tr>
-            <td>{info.quantity}</td>
+          <tr key = {index}>
+            <td > 
+            <div className="scrollbutton">
+            <Button variant="primary" size="sm" className="buttonsize"  onClick={() =>handleQuantityChange(index,-1)} > - </Button>{' '}
+            {info.quantity} 
+            <Button variant="primary" size="sm" className="buttonsize" onClick={() => handleQuantityChange(index,+1)} > + </Button>{' '}
+            </div>
+            </td>
             <td>{info.name}</td>
             <td>{info.discription}</td>
+            <td><Button variant="primary" size="sm"   onClick={() =>handledeleteentry(index)} >delete</Button>{' '}</td>
           </tr>
         )
       }

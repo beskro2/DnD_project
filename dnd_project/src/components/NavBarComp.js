@@ -6,10 +6,10 @@ export default class NavBarComp extends Component {
     render() {
         return(
            <div>
-             <Container>
+             <Container fluid>
                  <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
                    <Container>
-                      <Navbar.Brand href="#">Navbar</Navbar.Brand>
+                      <Navbar.Brand href="#">DnD</Navbar.Brand>
                         <Nav className="me-auto">
                             <Nav.Link href="/MyCharacter">Characters</Nav.Link>
                             <Nav.Link href="/CharacterLibrary">NPC Library</Nav.Link>

@@ -68,7 +68,7 @@ if(showNPCForm===true){
        <Form.Control aria-label="NPC Name" name='name' value={npc.name}  onChange={(changehandle)} />
   </InputGroup>
 
-    class:
+    Class:
     <Form.Select  aria-label="Default select example" name="class" value={npc.class} onChange={changehandle}>
     <option>Open this select menu</option>
     <option value="paladin">paladin</option>
@@ -100,7 +100,7 @@ if(showNPCForm===true){
       <option value="Tieflings">Tieflings</option>
     </Form.Select>
 
-    alignment:
+    Alignment:
     <Form.Select aria-label="Default select example" name='alignment' value={npc.alignment} onChange={changehandle}>
       <option>Open this select menu</option>
       <option value="Lawful Good">Lawful Good</option>

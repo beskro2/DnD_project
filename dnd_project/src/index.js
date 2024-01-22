@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import NotesPage from './pages/NotesPage';
-import MyCharacterPage from './pages/MyCharacterPage';
+import DiceSimulatorPage from './pages/DiceSimulatorPage';
 import CharacterLibraryPage from './pages/CharacterLibraryPage';
 import BagOfHoldingPage from './pages/BagOfHoldingPage';
 
@@ -19,8 +19,8 @@ const router = createBrowserRouter([
     path: "/",
     element:<App/>,
     children:[ {
-      path: "/MyCharacter",
-      element:<MyCharacterPage/>
+      path: "/DiceSimulator",
+      element:<DiceSimulatorPage/>
     }
     ,
     {

@@ -1,3 +1,23 @@
 .advantage{
     width:fit-content;
 }
+.headers{
+    text-align: center;
+    padding: 10px;
+}
+.selectorD{
+    text-align: center;
+    
+}
+.selector{
+    width:600px;
+   
+}
+.advantaceSpacing{
+    text-align: -webkit-center;
+   
+}
+.buttonD{
+    text-align: center;
+    padding: 20px;
+}

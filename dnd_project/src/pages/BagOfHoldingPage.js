@@ -45,7 +45,7 @@ function BagOfHoldingPage() {
   
   }
 
-  const handleQuantityChange = (index, increment) => {
+  const handleQuantityChange = (index, increment) => {                                       
     const updatedInputArr = [...inputarr];
     updatedInputArr[index].quantity = Math.max(0,updatedInputArr[index].quantity + increment);
     setInputarr(updatedInputArr);

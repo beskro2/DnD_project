@@ -1,9 +1,10 @@
 import Card from 'react-bootstrap/Card';
+import './NotesCard.css';
 
 export default function NotesCard(props) {
         return(
            <div>
-              <Card>
+              <Card className='cards'>
       <Card.Header as="h5">{props.note.name} ({props.note.date})</Card.Header>
       <Card.Body>
         <Card.Text>

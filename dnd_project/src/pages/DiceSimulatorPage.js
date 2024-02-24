@@ -3,16 +3,18 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React, { useState } from 'react';
+import Card from 'react-bootstrap/Card';
 import './DiceSimulator.css';
 
 function DiceSimulatorPage() {
 
   const [selectedAdvantage , setAdvantage] = useState("1");
   const [selectedDiceQuantity , setDiceQuantity] = useState(null);
-  const [selectedDiceType, setdiceType] = useState(null);
+  const [selectedDiceType, setDiceType] = useState(null);
   const [roles, setRoles] = useState([]); 
-  let temproles=[];
-  let temproles2=[];
+  let tempRoles=[];
+  let tempRoles2=[];
+  
   const handleAdvantageChange = (event) => {
     setAdvantage(event.target.value);
     console.log("selected role: " , selectedAdvantage);
@@ -20,9 +22,9 @@ function DiceSimulatorPage() {
   const handleDiceQuantityChange = (value) => {
     setDiceQuantity((prevDiceQuantityValue) => (prevDiceQuantityValue === value ? null : value));
   };
- const handleDiceTypeChange = (value) => {
-    setdiceType((prevDiceTypeValue) => (prevDiceTypeValue === value ? null : value));
- };
+  const handleDiceTypeChange = (value) => {
+    setDiceType((prevDiceTypeValue) => (prevDiceTypeValue === value ? null : value));
+  };
  
 function RollDice (DiceQ, DiceT) {
   // loop for amount of dice
@@ -31,75 +33,84 @@ function RollDice (DiceQ, DiceT) {
   //generates a random number within context of selected dice type
    var t = Math.floor(Math.random()*(DiceT)+1);
    // adds roles to tamp array
-   temproles.push(t);
+   tempRoles.push(t);
    
   }
 }
 
- function advantagefilter(){
+ function advantageFilter(){
+  //make sure dice number and dive type are selected
+  if(selectedDiceQuantity != null && selectedDiceType != null)
+  {
   //if user selects none
   if(selectedAdvantage === "1" )
   {
+    tempRoles.push("Use:");
   RollDice(selectedDiceQuantity, selectedDiceType);
 
-  setRoles(temproles);
-  //sets roles to the values in temproles
+  setRoles(tempRoles);
+  //sets roles to the values in tempRoles
    console.log(roles.toString());
  }
 
- //if user selects advatage
+ //if user selects advantage
 else if(selectedAdvantage === "2")
 {
-  temproles.push("first roles");
+  tempRoles.push("first roles:");
   RollDice(selectedDiceQuantity, selectedDiceType)
-  temproles.push("Second roles");
+  tempRoles.push("Second roles:");
   RollDice(selectedDiceQuantity, selectedDiceType)
   let y = 1;
  
-  for(let p= (temproles.length/2)+1; p<temproles.length; p++)
+  for(let p= (tempRoles.length/2)+1; p<tempRoles.length; p++)
   {
-    if(temproles[y] > temproles[p])
+    if(tempRoles[y] > tempRoles[p])
     {
-      temproles2.push(temproles[y]);
+      tempRoles2.push(tempRoles[y]);
     }
     else{
-      temproles2.push(temproles[p]);
+      tempRoles2.push(tempRoles[p]);
     }
     y=y+1;
   }
-  temproles.push("Use:");
-  temproles = temproles.concat(temproles2);
+  tempRoles.push("Use:");
+  tempRoles = tempRoles.concat(tempRoles2);
 
-  //sets roles to the values in temproles
-  setRoles(temproles);
+  //sets roles to the values in tempRoles
+  setRoles(tempRoles);
 }
 //if user selects disadvantage
 else if(selectedAdvantage === "3")
 {
-  temproles.push("first roles");
+  tempRoles.push("first roles:");
   RollDice(selectedDiceQuantity, selectedDiceType)
-  temproles.push("Second roles");
+  tempRoles.push("Second roles:");
   RollDice(selectedDiceQuantity, selectedDiceType)
   let y = 1;
  
-  for(let p= (temproles.length/2)+1; p<temproles.length; p++)
+  for(let p= (tempRoles.length/2)+1; p<tempRoles.length; p++)
   {
-    if(temproles[y] < temproles[p])
+    if(tempRoles[y] < tempRoles[p])
     {
-      temproles2.push(temproles[y]);
+      tempRoles2.push(tempRoles[y]);
     }
     else{
-      temproles2.push(temproles[p]);
+      tempRoles2.push(tempRoles[p]);
     }
     y=y+1;
   }
-  temproles.push("Use:");
-  temproles = temproles.concat(temproles2);
+  tempRoles.push("Use:");
+  tempRoles = tempRoles.concat(tempRoles2);
 
-  //sets roles to the values in temproles
-  setRoles(temproles);
+  //sets roles to the values in tempRoles
+  setRoles(tempRoles);
    
 }
+  }
+setDiceQuantity(null);
+setDiceType(null);
+setAdvantage("1");
+  
 }
 
  
@@ -187,7 +198,7 @@ else if(selectedAdvantage === "3")
     </div>   
     
    
-   <div className='advantaceSpacing'>
+   <div className='advantageSpacing'>
     <h3 className='headers'> Advantage</h3>
     <Form.Select
     aria-label="Default select example" 
@@ -200,18 +211,18 @@ else if(selectedAdvantage === "3")
     </Form.Select>
     </div>
     <div className = 'buttonD'>
-    <Button variant="primary"  onClick={() =>advantagefilter()}> Roll Dice </Button>{' '}
+    <Button variant="primary"  onClick={() =>advantageFilter()}> Roll Dice </Button>{' '}
     </div>
+    
+    <div className='test'>
+    <Card className= 'resultsCard'>
+    
+    <p>{roles.join(' ')}</p>
 
-    <p>{selectedDiceQuantity ? `Selected Value: ${selectedDiceQuantity}` : 'No value selected'}</p>
-    <p>{selectedDiceType ? `Selected Value: ${selectedDiceType}` : 'No value selected'}</p>
-    <ul>
-
-      {roles.map((role, index) => (
-        <li key={index}>{role}</li>
-      ))}
-    </ul>
+    </Card>
+    </div>
    </div>
+   
   );
   }
 

@@ -13,11 +13,26 @@
     width:600px;
    
 }
-.advantaceSpacing{
+.advantageSpacing{
     text-align: -webkit-center;
    
 }
 .buttonD{
     text-align: center;
     padding: 20px;
+}
+
+.test{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.resultsCard{
+   
+    width: 900px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+   
 }

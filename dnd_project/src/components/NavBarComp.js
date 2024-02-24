@@ -6,8 +6,8 @@ export default class NavBarComp extends Component {
     render() {
         return(
            <div>
-             <Container fluid>
-                 <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
+             
+                 <Navbar expand="lg" className="test" bg="dark" data-bs-theme="dark">
                    <Container>
                       <Navbar.Brand href="#">DnD</Navbar.Brand>
                         <Nav className="me-auto">
@@ -18,7 +18,7 @@ export default class NavBarComp extends Component {
                         </Nav>
                    </Container>
                  </Navbar>
-             </Container>
+             
            </div>
         )
     }
